@@ -149,3 +149,5 @@ to display a list of pokemons and select your favorite pokemon! (Swift UI)
 - Was using ImageView which uses ImageViewModel that handles images(downloading and caching images) for both PokemonHeaderView and PokemonView, but only the images for PokemonView showed up and was not correctly showing selected image in HeaderView..... ---> I realized that the pokemonId that is used for HeaderView doesn't change, so added .onChange to listen to subscriber and change the ImageViewModel's pokemon id to update the image, and it worked as intended!
 
 - Using and implementing in-memory cache/filemanager cache instead of using 3rd party library -> I wanted to challenge myself so I decided to do some reasearch and learn how I would be able to create a custom cache manager system for both in-memory cache/filemanager. Looking at Xcode CPU section and comparing how memory usage changes was actually fun!
+
+https://user-images.githubusercontent.com/84259456/202827281-f261f9ec-fbc3-4045-aba5-48596cc3c6cd.mov
