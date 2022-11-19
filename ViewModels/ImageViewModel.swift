@@ -1,6 +1,6 @@
 //
 //  ImageViewModel.swift
-//  PokedexSwiftUITutorial
+//  PokedexSwiftUI
 //
 //  Created by 北尾　大河 on 2022/11/16.
 //
@@ -15,7 +15,11 @@ class ImageViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
 //    let manager = PhotoCache.instance
     let manager = FilePhotoManager.instance
-    let id:Int
+    var id: Int {
+        didSet {
+            getImage(id: id)
+        }
+    }
     init(pokeid: Int) {
         self.id = pokeid
         getImage(id:pokeid)

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  PokedexSwiftUITutorial
+//  PokedexSwiftUI
 //
 //  Created by 北尾　大河 on 2022/11/14.
 //
@@ -21,7 +21,7 @@ struct ContentView: View {
             GeometryReader{geometry in
                     VStack(spacing: 10) {
 //                        Spacer().frame(height: geometry.size.height * 0.1)
-                            PokemonHeaderView(pokemon: selectedPokemon)
+                            PokemonHeaderView(pokemon: $selectedPokemon)
                                 .background(LinearGradient(gradient: Gradient(colors: [.yellow, .red]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                 .frame(width: geometry.size.width, height: geometry.size.height * 0.25)
                                 .padding(.top, 20)
@@ -31,7 +31,6 @@ struct ContentView: View {
                             LazyVGrid(columns: columns, spacing: 10) {
                                 ForEach(vm.filteredPokemon) {pokemon in
                                     PokemonView(pokemon: pokemon)
-                                        .opacity(isAnimated ? 0.3 : 1)
                                         .onTapGesture {
                                             selectedPokemon = pokemon
 //                                            SoundManager.instance.play(soundName: "pokemon_buzz")
@@ -63,6 +62,7 @@ struct ContentView: View {
                     
         }
         .environmentObject(vm)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

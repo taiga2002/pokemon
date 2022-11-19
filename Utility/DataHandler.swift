@@ -1,12 +1,13 @@
 //
 //  DataHandler.swift
-//  PokedexSwiftUITutorial
+//  PokedexSwiftUI
 //
 //  Created by 北尾　大河 on 2022/11/14.
 //
 
 import Foundation
 extension Bundle {
+    //Not for the actual app usage, but when I initially tested with json file, I used this function to decode json file.
     func decode<T:Decodable>(file:String) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Could not find \(file) in bundle.")
@@ -19,25 +20,5 @@ extension Bundle {
             fatalError("Could not decode \(file) from bundle.")
         }
         return loadedData
-    }
-    func fetchData<T:Decodable>(url: String, model:T.Type, completion:@escaping(T) -> (), failure: @escaping(Error) -> ()) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            guard let data = data else {
-                if let error = error {
-                    failure(error)
-                }
-                return
-            }
-            do {
-                let serverData = try JSONDecoder().decode(T.self, from:data)
-                completion(serverData)
-            } catch {
-                failure(error)
-            }
-        }.resume()
     }
 }

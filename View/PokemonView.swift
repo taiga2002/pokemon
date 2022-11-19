@@ -1,6 +1,6 @@
 //
 //  PokemonView.swift
-//  PokedexSwiftUITutorial
+//  PokedexSwiftUI
 //
 //  Created by 北尾　大河 on 2022/11/14.
 //
@@ -17,6 +17,7 @@ struct PokemonView: View {
     let dimensions: Double = 100
     var body: some View {
         VStack{
+//When you want to use Kingfisher, you can use this KFImage
 //            KFImage(URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(vm.getPokemonID(pokemon: pokemon)).png"))
             ImageView(pokeid: vm.getPokemonID(pokemon: pokemon))
             .overlay(alignment:.bottom){
@@ -31,7 +32,6 @@ struct PokemonView: View {
         .background(LinearGradient(gradient: Gradient(colors: [CustomColor.lightPurple, .pink, ]), startPoint: .trailing, endPoint: .bottomTrailing))
         .cornerRadius(15)
         .shadow(color:.gray, radius: 6, x: 0.0, y:0.0)
-//        .background(Color(vm.backgroundColor(forType: vm.pokemonDetails?.types[0].type.name ?? "")))
     }
 }
 

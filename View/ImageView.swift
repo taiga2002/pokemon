@@ -1,6 +1,6 @@
 //
 //  ImageView.swift
-//  PokedexSwiftUITutorial
+//  PokedexSwiftUI
 //
 //  Created by 北尾　大河 on 2022/11/16.
 //
@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ImageView: View {
-    @StateObject var loader: ImageViewModel
+    
+    @StateObject private var loader: ImageViewModel
+    
+    var pokeid: Int
+    
     init(pokeid: Int) {
+        self.pokeid = pokeid
         _loader = StateObject(wrappedValue: ImageViewModel(pokeid: pokeid))
     }
+    
     var body: some View {
         ZStack {
             if let image = loader.image {
@@ -19,14 +25,9 @@ struct ImageView: View {
                     .resizable()
                     .scaledToFit()
             }
-        }
+        }.onChange(of: pokeid, perform: {
+            loader.id = $0
+        })
     }
 }
 
-struct ImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageView(pokeid: 1)
-            .frame(width: 75, height: 75)
-            .previewLayout(.sizeThatFits)
-    }
-}
