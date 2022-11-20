@@ -7,6 +7,7 @@ to display a list of pokemons and select your favorite pokemon! (Swift UI)
 - As I have a lot of experience with React Native, it is more natural for me to work in SwiftUI, as developing native ios apps with simple and speedy implementation and more control over implementation for UI without using storyboards. Also, it is just simply easy, readable, and less code to read and write.
 - As declarative programming language like SwiftUI hides low-leve details, as a developer, we can ignore those low-level errors that might potentially happen with UIKit. 
 - Although it limits the users to only ios 13 or upper version, knowing UIKit can be integrated by adapting UIViewRepresentable protocol, I believe SwiftUI would have more updated future and change as well.
+- Live preview functionality is so useful when you develop UI on your own with trial and error such as "Oh I want to add more padding to the right of the screen but I don't know how much I should add" without re-building the entire application again.
 
 ## Roadmap
 
