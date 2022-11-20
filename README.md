@@ -3,6 +3,11 @@
 The goal for this project is to create a Pokedex ios app using [PokeAPI](https://pokeapi.co/)
 to display a list of pokemons and select your favorite pokemon! (Swift UI)
 
+## Why did I use SwiftUi over UIKit?
+- As I have a lot of experience with React Native, it is more natural for me to work in SwiftUI, as developing native ios apps with simple and speedy implementation and more control over implementation for UI without using storyboards. Also, it is just simply easy, readable, and less code to read and write.
+- As declarative programming language like SwiftUI hides low-leve details, as a developer, we can ignore those low-level errors that might potentially happen with UIKit. 
+- Although it limits the users to only ios 13 or upper version, knowing UIKit can be integrated by adapting UIViewRepresentable protocol, I believe SwiftUI would have more updated future and change as well.
+
 ## Roadmap
 
 - MileStone 1: Create a MVP that fetches a list of pokemon using this [Api](https://pokeapi.co/api/v2/pokemon?limit=20&offset=0) in a grid shape and show it after you tap a specific pokemon
